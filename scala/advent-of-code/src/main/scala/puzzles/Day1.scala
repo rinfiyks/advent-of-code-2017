@@ -4,11 +4,12 @@ import util.Util
 
 object Day1 extends App {
 
-  println(solve1(Util.readInput("day1.txt").head))
-  println(solve2(Util.readInput("day1.txt").head))
+  private val input = Util.readInput("day1.txt").head
+  println(solve1(input))
+  println(solve2(input))
 
   def solve1(input: String): Int = {
-    val circularInput = input.head + input
+    val circularInput = input + input.head
     circularInput.sliding(2).filter(s => s(0) == s(1)).map(_.head.asDigit).sum
   }
 
