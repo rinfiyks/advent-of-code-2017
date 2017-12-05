@@ -5,7 +5,7 @@ import collection.mutable
 
 object Day3 extends App {
 
-  val input = Util.readInput("day3.txt").head.toInt
+  val input = Util.readInput("day3.txt").next().toInt
   println(solve1(input))
   println(solve2(input))
 

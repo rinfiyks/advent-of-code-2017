@@ -4,7 +4,7 @@ import util.Util
 
 object Day4 extends App {
 
-  val input = Util.readInput("day4.txt")
+  val input = Util.readInput("day4.txt").toList
   println(solve1(input))
   println(solve2(input))
 

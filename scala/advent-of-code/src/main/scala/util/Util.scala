@@ -2,8 +2,8 @@ package util
 
 object Util {
 
-  def readInput(input: String): Seq[String] = {
-    io.Source.fromResource(s"puzzles/input/$input").getLines().toList
+  def readInput(input: String): Iterator[String] = {
+    io.Source.fromResource(s"puzzles/input/$input").getLines()
   }
 
 }
