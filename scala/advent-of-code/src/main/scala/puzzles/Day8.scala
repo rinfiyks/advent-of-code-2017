@@ -2,7 +2,7 @@ package puzzles
 
 import util.Util
 
-import scala.collection.immutable.Seq
+import collection.immutable.Seq
 
 object Day8 extends App {
 

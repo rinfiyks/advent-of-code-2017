@@ -2,8 +2,8 @@ package puzzles
 
 import util.Util
 
-import scala.collection.immutable.Seq
-import scala.collection.mutable.ArrayBuffer
+import collection.immutable.Seq
+import collection.mutable.ArrayBuffer
 
 object Day6 extends App {
 
