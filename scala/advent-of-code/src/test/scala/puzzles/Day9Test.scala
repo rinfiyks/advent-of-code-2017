@@ -29,4 +29,26 @@ class Day9Test extends FunSuite {
     assert(Day9.solve1("{{<a!>},{<a!>},{<a!>},{<ab>}}") === 3)
   }
 
+  test("<>, 0 characters.") {
+    assert(Day9.solve2("<>") === 0)
+  }
+  test("<random characters>, 17 characters.") {
+    assert(Day9.solve2("<random characters>") === 17)
+  }
+  test("<<<<>, 3 characters.") {
+    assert(Day9.solve2("<<<<>") === 3)
+  }
+  test("<{!>}>, 2 characters.") {
+    assert(Day9.solve2("<{!>}>") === 2)
+  }
+  test("<!!>, 0 characters.") {
+    assert(Day9.solve2("<!!>") === 0)
+  }
+  test("<!!!>>, 0 characters.") {
+    assert(Day9.solve2("<!!!>>") === 0)
+  }
+  test("<{o\"i!a,<{i<a>, 10 characters."){
+    assert(Day9.solve2("<{o\"i!a,<{i<a>") === 10)
+  }
+
 }
