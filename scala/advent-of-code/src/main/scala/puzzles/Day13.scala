@@ -21,12 +21,16 @@ object Day13 extends App {
   def solve2(input: Seq[String]): Int = {
     val parsedInput = parse(input)
 
-    (0 until Integer.MAX_VALUE).find { delay =>
-      !parsedInput.exists {
+    @annotation.tailrec
+    def findDelay(delay: Int): Int = {
+      if (!parsedInput.exists {
         case layer :: range :: Nil =>
           (layer + delay) % (2 * range - 2) == 0
-      }
-    }.get
+      }) delay
+      else findDelay(delay + 1)
+    }
+
+    findDelay(0)
   }
 
   private def parse(input: Seq[String]) = input.map(_.split(": ").map(_.toInt).toList)
