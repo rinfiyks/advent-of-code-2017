@@ -31,12 +31,12 @@ object Day12 extends App {
     }
   }
 
-  case class Program(id: Int, channels: Seq[Int])
+  case class Program(id: String, channels: Seq[String])
 
   private def parseInput(input: Seq[String]) = {
     input.map { line =>
       val s = line.split(" <-> ")
-      Program(s.head.toInt, s(1).split(", ").map(_.toInt).toList)
+      Program(s.head, s(1).split(", ").toList)
     }
   }
 
