@@ -78,10 +78,11 @@ object Day18 extends App {
     updatedPrograms
   }
 
-  private def calculateNextState(state: ProgramState): ProgramState = {
+  def calculateNextState(state: ProgramState): ProgramState = {
     val op: Option[(Long, Long) => Long] = state.instructionType match {
       case "set" => Some((_, X) => X)
       case "add" => Some(_ + _)
+      case "sub" => Some(_ - _)
       case "mul" => Some(_ * _)
       case "mod" => Some(_ % _)
       case _ => None
@@ -96,13 +97,15 @@ object Day18 extends App {
     val nextPointer: Long = state.instructionType match {
       case "jgz" =>
         if (state.XVal > 0) state.pointer + state.Y else state.pointer + 1
+      case "jnz" =>
+        if (state.XVal != 0) state.pointer + state.Y else state.pointer + 1
       case _ => state.pointer + 1
     }
 
     state.copy(pointer = nextPointer.toInt, registers = updatedRegisters)
   }
 
-  private def setupInitialRegisters(input: Seq[String]) = {
+  def setupInitialRegisters(input: Seq[String]) = {
     input.map(_.split(" ")(1))
       .filter(_.head.isLetter)
       .map(_ -> 0l).toMap
